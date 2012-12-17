@@ -1,14 +1,21 @@
-PathogenPortal
-==============
+# PathogenPortal
 
 Pathogen Portal is a repository linking to the Bioinformatics Resource Centers (BRCs) sponsored by the National Institute of Allergy and Infectious Diseases (NIAID) and maintained by The Virginia Bioinformatics Institute. The BRCs are providing web-based resources to scientific community conducting basic and applied research on organisms considered potential agents of biowarfare or bioterrorism or causing emerging or re-emerging diseases.
 
-This GIT repository will contain documentation for the PathogenPortal systems architecture, deployment documentation, source code and links to external information and dependencies.
+This GIT repository contains documentation for the PathogenPortal systems architecture, deployment documentation, source code and links to external information and dependencies.
 
-Documentation
-=============
+To clone this respository and any linked repositores:
 
-[Systems Architecture](/cidvbi/PathogenPortal/wiki/Systems-Architecture)
+    git clone --recursive https://github.com/cidvbi/PathogenPortal.git
 
-[Deployment](/cidvbi/PathogenPortal/wiki/Deployment)
+## Documentation
+
+- [Documentation Home](/cidvbi/PathogenPortal/wiki/Home)
+    - [Introduction](/cidvbi/PathogenPortal/wiki/Introduction)
+    - [Systems Architecture](/cidvbi/PathogenPortal/wiki/Systems-Architecture)
+    - [Database Architecture](/cidvbi/PathogenPortal/wiki/Database-Architecture)
+    - [Data Models](/cidvbi/PathogenPortal/wiki/Data-Models)
+    - [Software Design Overview](/cidvbi/PathogenPortal/wiki/Software-Design-Overview)
+- [Deployment](/cidvbi/PathogenPortal/wiki/Deployment)
+
 
