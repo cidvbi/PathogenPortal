@@ -11,11 +11,6 @@ To clone this respository and any linked repositores:
 ## Documentation
 
 - [Documentation Home](/cidvbi/PathogenPortal/wiki/Home)
-    - [Introduction](/cidvbi/PathogenPortal/wiki/Introduction)
-    - [Systems Architecture](/cidvbi/PathogenPortal/wiki/Systems-Architecture)
-    - [Database Architecture](/cidvbi/PathogenPortal/wiki/Database-Architecture)
-    - [Data Models](/cidvbi/PathogenPortal/wiki/Data-Models)
-    - [Software Design Overview](/cidvbi/PathogenPortal/wiki/Software-Design-Overview)
-- [Deployment](/cidvbi/PathogenPortal/wiki/Deployment)
+
 
 
