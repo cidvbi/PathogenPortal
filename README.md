@@ -8,7 +8,7 @@ To clone this respository and any linked repositores:
 
     git clone --recursive https://github.com/cidvbi/PathogenPortal.git
 
-[Systems Documentation Home](/cidvbi/PathogenPortal/wiki/Home)
+[Systems Documentation Home](/cidvbi/PathogenPortal/wiki)
 
 
 
