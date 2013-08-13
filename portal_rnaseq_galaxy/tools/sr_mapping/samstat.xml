@@ -1,0 +1,40 @@
+<tool id="samstat" name="SAM Stat Report" version="1.08">
+	<description>Descriptive statistics of read alignments</description>
+	<requirements>
+		<requirement type="package">samstat</requirement>
+		<requirement type="package">samtools</requirement>
+	</requirements>
+	<command>
+		samstat -f $format_type -n $out_file -l "Statistics for $input_alignment.name" $input_alignment
+
+	</command>
+
+	<inputs>
+        <param name="format_type" type="select" optional="false" label="Quality type">
+            <option value="bam" selected="true">BAM</option>
+            <option value="sam">SAM</option>
+            <option value="fastq">FastQ</option>
+        </param>
+        <param format="bam,sam,fastq" name="input_alignment" type="data" optional="false" label="Alignments"/>        
+	</inputs>
+
+	<outputs>
+        <data format="html" name="out_file"  label="SamStat for ${input_alignment.name}.html" />      
+	</outputs>
+
+	<help>
+
+.. class:: infomark
+
+**SAMStat**
+
+SAMStat reports nucleotide composition, length distribution, base quality distribution, mapping statistics, mismatch, insertion and deletion error profiles, di-nucleotide and 10-mer over-representation. 
+
+-----
+
+**Citation**
+Lassmann et al. (2010) "SAMStat: monitoring biases in next generation sequencing data." Bioinformatics doi:10.1093/bioinformatics/btq614
+
+	</help>
+
+</tool>

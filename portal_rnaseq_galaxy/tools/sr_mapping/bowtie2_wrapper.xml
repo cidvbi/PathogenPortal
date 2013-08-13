@@ -1,0 +1,195 @@
+<tool id="bowtie2" name="Align with Bowtie2" version="2.0.2">
+    <!-- Wrapper compatible with Bowtie version 2.0.0 -->
+    <description>is a short-read aligner</description>
+    <version_command>bowtie2 --version</version_command>
+    <requirements>
+        <requirement type="package">bowtie2</requirement>
+        <requirement type="package">samtools</requirement>
+    </requirements>
+    <command interpreter="python">
+        bowtie2_wrapper.py
+        
+        ## Change this to accommodate the number of threads you have available.
+        --num-threads="4"
+
+        ## Outputs.
+        --output=$output
+
+        #if str( $singlePaired.sPaired ) == "single"
+            #if $output_unaligned_reads_l
+                --output_unaligned_reads=$output_unaligned_reads_l
+            #end if
+        #else
+            #if $output_unaligned_reads_l and $output_unaligned_reads_r
+                --output_unaligned_reads_l=$output_unaligned_reads_l
+                --output_unaligned_reads_r=$output_unaligned_reads_r
+            #end if
+        #end if
+        
+        ## Handle reference file.
+        #if $refGenomeSource.genomeSource == "history":
+            --own-file=$refGenomeSource.ownFile
+        #else:
+            --indexes-path="${refGenomeSource.index.fields.path}"
+        #end if
+
+        ## Are reads single-end or paired?
+        --single-paired=$singlePaired.sPaired
+
+        ## First input file always required.
+        --input1=$input1
+        
+        ## Second input only if input is paired-end.
+        #if $singlePaired.sPaired == "paired"
+            --input2=$singlePaired.input2
+            -I $singlePaired.minInsert
+            -X $singlePaired.maxInsert
+        #end if
+
+        ## Set params.
+        --settings=$params.settingsType
+        
+        #if $params.settingsType == "full":
+            #if str($params.align_type) == "end_to_end":
+                --end-to-end --preset-alignment=$params.preset.align_preset_select
+            #else:
+                --local --preset-alignment=$params.preset.align_preset_select-local
+            #end if
+        #end if
+
+        ## Read group information.
+        #if $readGroup.specReadGroup == "yes"
+          --rgid="$readGroup.rgid"
+          --rglb="$readGroup.rglb"
+          --rgpl="$readGroup.rgpl"
+          --rgsm="$readGroup.rgsm"
+        #end if
+    </command>
+    <inputs>
+        <conditional name="singlePaired">
+            <param name="sPaired" type="select" label="Is this library mate-paired?">
+              <option value="single">Single-end</option>
+              <option value="paired">Paired-end</option>
+            </param>
+            <when value="single">
+                <param format="fastqsanger,fastq,fastqsolexa,fastqillumina" name="input1" type="data" label="FASTQ file" help="Nucleotide-space: Must have Sanger-scaled quality values with ASCII offset 33"/>
+            </when>
+            <when value="paired">
+                <param format="fastqsanger,fastq,fastqsolexa,fastqillumina" name="input1" type="data" label="FASTQ file" help="Nucleotide-space: Must have Sanger-scaled quality values with ASCII offset 33" display="on_deck"/>
+                <param format="fastqsanger,fastq,fastqsolexa,fastqillumina" name="input2" type="data" label="FASTQ file" help="Nucleotide-space: Must have Sanger-scaled quality values with ASCII offset 33" display="on_deck"/>
+                <!-- TODO: paired-end specific parameters. -->
+                <param name="minInsert" type="integer" value="0" label="Minimum insert size for valid paired-end alignments" help="The minimum fragment length for valid paired-end alignments. E.g. if -I 60 is specified and a paired-end alignment consists of two 20-bp alignments in the appropriate orientation with a 20-bp gap between them, that alignment is considered valid (as long as -X is also satisfied). A 19-bp gap would not be valid in that case. If trimming options -3 or -5 are also used, the -I constraint is applied with respect to the untrimmed mates. Default: 0."/>
+                <param name="maxInsert" type="integer" value="250" label="Maximum insert size for valid paired-end alignments" help="The maximum fragment length for valid paired-end alignments. E.g. if -X 100 is specified and a paired-end alignment consists of two 20-bp alignments in the proper orientation with a 60-bp gap between them, that alignment is considered valid (as long as -I is also satisfied). A 61-bp gap would not be valid in that case. If trimming options -3 or -5 are also used, the -X constraint is applied with respect to the untrimmed mates, not the trimmed mates. Default: 500."/>
+            </when>
+        </conditional>
+        <param name="unalignedFile" type="boolean" truevalue="true" falsevalue="false" checked="False" label="Write all reads that could not be aligned to a file (uses --un for single-end and  --un-conc for paired-ends)" />
+        <conditional name="refGenomeSource">
+          <param name="genomeSource" type="select" label="Will you select a reference genome from your history or use a built-in index?" help="Built-ins were indexed using default options">
+            <option value="indexed">Use a built-in index</option>
+            <option value="history">Use one from the history</option>
+          </param>
+          <when value="indexed">
+        <param name="index" type="select" force_select="true" label="Select a reference genome" help="If your genome of interest is not listed, contact Pathogen Portal team." display="coordinate:organisms">   
+          <options from_data_table="all_pro_master">
+            <column name="name" index="2" />
+	    <column name="value" index="0" />
+	    <column name="dbkey" index="1" />
+	    <column name="path" index="3" />
+            <!-- <filter type="sort_by" column="2" /> -->
+            <validator type="no_options" message="No indexes are available" />
+          </options>
+        </param>
+          </when>
+          <when value="history">
+            <param name="ownFile" type="data" format="fasta" metadata_name="dbkey" label="Select the reference genome" />
+          </when>  <!-- history -->
+        </conditional>  <!-- refGenomeSource -->
+        <conditional name="params">
+            <param name="settingsType" type="select" label="Parameter Settings" help="You can use the default settings or set custom values for any of Bowtie's parameters.">
+              <option value="preSet">Use Defaults</option>
+              <option value="full">Full parameter list</option>
+            </param>
+            <when value="preSet" />
+            <!-- Full/advanced params. -->
+            <when value="full">
+                <param name="align_type" type="select" label="Type of alignment" help="end-to-end:in this mode, Bowtie 2 requires that the entire read align from one end to the other, without any trimming (or soft clipping) of characters from either end. The match bonus --ma always equals 0 in this mode, so all alignment scores are less than or equal to 0, and the greatest possible alignment score is 0. This is mutually exclusive with --local. --end-to-end is the default mode. 
+                local: Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (soft clipped) from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode.">
+                    <option selected="true" value="end_to_end">End to end</option>
+                    <option value="local">Local</option>
+                </param>
+                <conditional name="preset">
+                    <param name="b2_preset" type="select" label="Use Preset options">
+                          <option selected="true" value="Yes">Yes</option>
+                          <option value="No">No</option>
+                    </param>
+                    <when value="Yes">
+                        <param name="align_preset_select" type="select" label="Preset option" help="The preset options that come with Bowtie 2 are designed to cover a wide area of the speed/sensitivity/accuracy tradeoff space, with the presets ending in fast generally being faster but less sensitive and less accurate, and the presets ending in sensitive generally being slower but more sensitive and more accurate.">
+                            <option value="very-fast">Very fast</option>
+                            <option value="fast">Fast</option>
+                            <option selected="true" value="sensitive">Sensitive</option>
+                            <option value="very-sensitive">Very sensitive</option>
+                        </param>
+                    </when>
+                    <when value="No" />
+                </conditional>
+            </when>  <!-- full -->
+      </conditional>  <!-- params -->
+      <conditional name="readGroup">
+            <param name="specReadGroup" type="select" label="Specify the read group for this file?">
+                <option value="yes">Yes</option>
+                <option value="no" selected="True">No</option>
+            </param>
+            <when value="yes">
+                <param name="rgid" type="text" size="25" label="Read group identiﬁer (ID). Each @RG line must have a unique ID. The value of ID is used in the RG tags of alignment records. Must be unique among all read groups in header section." help="Required if RG specified. Read group IDs may be modiﬁed when merging SAM ﬁles in order to handle collisions." />
+                <param name="rglb" type="text" size="25" label="Library name (LB)" help="Required if RG specified" />
+                <param name="rgpl" type="text" size="25" label="Platform/technology used to produce the reads (PL)" help="Required if RG specified. Valid values : CAPILLARY, LS454, ILLUMINA, SOLID, HELICOS, IONTORRENT and PACBIO" />
+                <param name="rgsm" type="text" size="25" label="Sample (SM)" help="Required if RG specified. Use pool name where a pool is being sequenced" />
+            </when>
+            <when value="no" />
+        </conditional> <!-- readGroup -->
+    </inputs>
+
+    <outputs>
+        <data format="fastqsanger" name="output_unaligned_reads_l" label="${tool.name} on ${on_string}: unaligned reads (L)" >
+            <filter>unalignedFile is True</filter>
+            <actions>
+                <action type="format">
+                    <option type="from_param" name="singlePaired.input1" param_attribute="ext" />
+                </action>
+            </actions>
+        </data>
+        <data format="fastqsanger" name="output_unaligned_reads_r" label="${tool.name} on ${on_string}: unaligned reads (R)">
+            <filter>singlePaired['sPaired'] == "paired" and unalignedFile is True</filter>
+            <actions>
+                <action type="format">
+                    <option type="from_param" name="singlePaired.input1" param_attribute="ext" />
+                </action>
+            </actions>
+        </data>
+        <data format="bam" name="output" label="${tool.name} on ${on_string}: aligned reads">
+          <actions>
+            <conditional name="refGenomeSource.genomeSource">
+              <when value="indexed">
+                <action type="metadata" name="dbkey">
+                  <option type="from_data_table" name="all_pro_master" column="1" offset="0">
+                    <filter type="param_value" column="0" value="#" compare="startswith" keep="False"/>
+                    <filter type="param_value" ref="refGenomeSource.index" column="0"/>
+                  </option>
+                </action>
+              </when>
+              <when value="history">
+                <action type="metadata" name="dbkey">
+                  <option type="from_param" name="refGenomeSource.ownFile" param_attribute="dbkey" />
+                </action>
+              </when>
+            </conditional>
+          </actions>
+        </data>
+    </outputs>
+
+    <tests>
+    </tests>
+
+    <help>
+    </help>
+</tool>

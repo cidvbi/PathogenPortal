@@ -1,0 +1,8 @@
+hg19	hg19	Homo sapiens hg19	/mnt/galaxyIndices/genomes/Hsapiens/hg19/bowtie/hg19	cellular organisms; Eukaryota;
+hg18	hg18	Homo sapiens hg18	/mnt/galaxyIndices/genomes/Hsapiens/hg18/bowtie/hg18	cellular organisms; Eukaryota;
+mm9	mm9	M. musculus mm9	/mnt/galaxyIndices/genomes/Mmusculus/mm9/bowtie/mm9	cellular organisms; Eukaryota;
+mm8	mm8	M. musculus mm8	/mnt/galaxyIndices/genomes/Mmusculus/mm8/bowtie/mm8	cellular organisms; Eukaryota;
+rn4	rn4	R. norvegicus rn4	/mnt/galaxyIndices/genomes/Rnorvegicus/rn4/bowtie/rn4	cellular organisms; Eukaryota;
+danRer7	danRer7	Danio rerio danRer7	/mnt/galaxyIndices/genomes/danRer/danRer7/bowtie/zebrafish_genome	cellular organisms; Eukaryota;
+sacCer3	sacCer3	S.cerevisiae S288C sacCer3	/mnt/galaxyIndices/genomes/sacCer3/bowtie/sacCer3	cellular organisms; Eukaryota;
+sacCer2	sacCer2	S.cerevisiae S288C sacCer2	/mnt/galaxyIndices/genomes/sacCer2/bowtie/sacCer2	cellular organisms; Eukaryota;

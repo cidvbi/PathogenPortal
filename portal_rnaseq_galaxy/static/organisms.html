@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Genome Selector</title>
+    
+    <link href="/static/scripts/extjs-4/resources/css/ext-all-gray.css" media="screen" rel="Stylesheet" type="text/css">
+    <link href="/static/scripts/extjs-4/examples/ux/css/LiveSearchGridPanel.css" media="screen" rel="Stylesheet" type="text/css">
+    <link href="/static/scripts/extjs-4/examples/ux/statusbar/css/statusbar.css" media="screen" rel="Stylesheet" type="text/css">
+    
+    <!-- page specific -->
+    <style type="text/css">
+        /* style rows on mouseover */
+        .x-grid-row-over .x-grid-cell-inner {
+            font-weight: bold;
+        }
+    </style>
+    <script src="/static/scripts/extjs-4/ext-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.Loader.setConfig({enabled: true});
+        Ext.Loader.setPath('Ext', '/static/scripts/extjs-4/');
+        Ext.Loader.setPath('Ext.ux', '/static/scripts/extjs-4/examples/ux/');
+        Ext.require(['Ext.data.*', 'Ext.tip.QuickTipManager', 'Ext.ux.LiveSearchGridPanel', 'Ext.util.*', 'Ext.grid.*']);
+        var gridPanel_guideAnnotationSource_index = null;
+        Ext.onReady(function() {         
+        Ext.QuickTips.init();            
+                     
+        function listProperties(obj) {
+          var propList = "";
+          for(var propName in obj) {
+              if(typeof(obj[propName]) != "undefined") {
+                propList += (propName + ", ");
+              }
+          }
+          console.log(propList);
+        }
+
+                             
+        Ext.define('SearchSelectModel', {
+            extend: 'Ext.data.Model',
+            fields: [
+                {name: 'name',    type: 'string'},
+                {name: 'value',   type: 'string'}
+            ]
+        }); 
+
+        var gridStore_guideAnnotationSource_index = Ext.create('Ext.data.Store', {
+            model: 'SearchSelectModel',
+            proxy: {
+            type: 'ajax',
+            url: '../requests_common/ret_tool_data_table_json?table_id=all_org_master',
+            pageParam: undefined,
+            startParam: undefined,
+            limitParam: undefined,
+            noCache: false
+            }
+        });
+    
+        gridStore_guideAnnotationSource_index.load();
+        // create the Grid, see Ext.
+        gridPanel_guideAnnotationSource_index = Ext.create('Ext.ux.LiveSearchGridPanel', {
+            store: gridStore_guideAnnotationSource_index,
+            columnLines: true,
+            enableCtxMenu: false,
+            columns: [
+                {
+                    text     : 'Available',
+                    flex     : 1,
+                    sortable : false, 
+                    dataIndex: 'name',
+                    hidden   : false,
+                    searchable: true
+                },
+                {
+                    text     : 'Value',
+                    flex     : 1,
+                    sortable : false,
+                    dataIndex: 'value',
+                    hidden   : true,
+                    searchable: false
+                }
+            ],
+            height: 380,
+            width: 450,
+            title: 'Supported Genomes',
+            renderTo: 'grid-example',
+            defaultStatusText: '',
+            viewConfig: {
+                stripeRows: true
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="grid-example"></div>
+
+</body>
+</html>

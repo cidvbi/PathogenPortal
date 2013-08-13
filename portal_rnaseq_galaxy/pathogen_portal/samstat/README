@@ -1,0 +1,26 @@
+To build:
+	cd src
+	type make
+
+Documentation:
+
+	Usage:   samstat <file.sam> <file.bam> <file.fa> <file.fq> .... 
+	Options:
+		-s             STR    prints summary statistics of multiple libraries into one FILE [NA].
+		-k             INT    treat all reads mapping more than k errors as unmapped [off].
+		-n             STR    name of library and output file when reading from stdin
+		-f             STR    specifies the format when reading from stdin.
+		-F             INT    filter used in samtools [768].
+
+	Example: Reading from standard input:
+
+	cat library.sam | samstat -f sam -n library_one
+	or:
+	samtools view -ub  ~/tmp/small.bam   | ./samstat -f bam -n library_one
+
+	In both cases SAMStat will list the stats in the file "library_one.html"
+
+Contact:
+
+Timo Lassmann <timolassmann@gmail.com>
+

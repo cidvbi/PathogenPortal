@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style/base.css" type="text/css" />
+    <style type="text/css">
+        .gauge_div {
+            background-color:#FAFAE7;
+            border-bottom:2px solid #A0A0A0;
+            border-right: 2px solid #A0A0A0;
+            margin: -4px 5px 4px -5px;
+            width:350px;
+        }
+
+        #vbi_logo { 
+            background-image: url(images/logo-vbi.png);
+            background-repeat: no-repeat;
+            text-align: left;
+            width: 200px;
+            height:43px;
+        }
+
+        #funding_notice {
+            font-size: 10px;
+            width: 380px;
+            text-align:left;
+            margin: 0 0 0 20px;
+        }
+
+#contact_email {
+    font-size:10px;
+    fonrt-style:underline;
+    text-align: center;
+}
+   
+#contact_email a:link {
+    color: #000000;
+    text-decoration: underline;
+}
+ 
+#conatact_email a:visited {
+    color: #000000;
+    text-decoration: underline;
+}
+   
+#contact_email a:hover {
+    color: orangered;
+}
+
+#bottom_brc_links {
+    font-size: 10px;
+    text-align:center;
+    vertical-align: top;
+    white-space: nowrap;   
+}
+    
+#bottom_brc_links a:link {
+    color: #000000;
+    text-decoration: underline;
+}
+    
+#bottom_brc_links a:visited {  
+    color: #000000;
+    text-decoration: underline;
+}
+    
+#bottom_brc_links a:hover {
+    color: orangered;
+}
+
+    </style>
+</head>
+<body>
+    <div class="document">
+<!--
+<p/>
+        <span style="color: #777; font-family:arial narrow; font-size: 36px; font-weight: 100">P</span>
+        <span style="color: #777; font-family:arial narrow; font-size:26px; font-weight: 100">ATHOGEN</span>
+        <span style="font-family:arial narrow; font-size: 36px">P</span>
+        <span style="font-family:arial narrow; font-size:26px">ORTAL</span>
+
+        <h1>Pathogen Portal RNA-Seq pipeline <span style="font-size: medium;"</span> </h1>
+-->
+        <br/>
+        <div class="gauge_div">
+	<p><span style="font-style:italic">Currently you can:</span><br />
+        <dl>
+        <dt>
+            <div style="font-weight:bold; text-align:left">Map your RNA-Seq Reads to Reference Genomes</div>
+            <dd>
+	        -Align your Illumina fastQ reads <strong>(gzipped fastQ files accepted)</strong> against any sequenced genome from 
+                <a class="reference" href="http://www.eupathdb.org/">EuPathDB</a>, 
+                <a class="reference" href="http://www.patricbrc.org/">PATRIC</a>, 
+                and <a class="reference" href="http://www.vectorbase.org/">VectorBase</a>. 
+            </dd>
+            <br/>
+            <dd>
+                -View a <a target="_self" class="reference" href="./organisms.html">list of supported genomes.</a><br />
+            </dd>
+        </dt>
+        <br/>
+        <dt>
+            <div style="font-weight:bold; text-align:left">Estimate Gene Expression Values</div>
+            <dd>
+                -Obtain BAM files for the resulting alignments and FPKM expression values for annotated genes and novel transcripts.<br />
+            </dd>
+        </dt>
+        </dl>
+        </div>
+	</p>
+        <br/>
+	<p>Once you are logged in, go to the <a target="_parent" class="reference" href="../launch_pad" >Launch Pad</a> to get started.</p>
+        
+    <p>Have a question? <a href="mailto:pathporthelp@vbi.vt.edu" title="Send us email">Contact the Pathogen Portal Team</a></p>
+        <br/>
+	<p style="font-size:10px;">We are currently working to expand functionality and improve our user interface. Stay tuned for further updates.</p>
+	<hr/>
+	        Galaxy is supported in part by <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>, <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>, and <a target="_blank" class="reference" href="http://www.huck.psu.edu">the Huck Institutes of the Life Sciences</a><br /><br />
+    </div>
+
+    <div id="footer_container">
+<table border="0" width="100%">
+    <tr>
+        <td>
+            <a href="https://www.vbi.vt.edu/"><div id="vbi_logo"></div></a>
+        </td>
+        <td>
+            <div id="funding_notice">
+                This project has been funded in whole or in part with Federal funds
+                from the National Institute of Allergy and Infectious Diseases, National
+                Institutes of Health, Department of Health and Human Services,
+                under Contract No. HHSN272200900040C, awarded to BWS Sobral.
+            </div>
+        </td>
+        <td>
+            <div id="contact_email">
+                <a href="mailto:pathporthelp@vbi.vt.edu" title="Send us email">Contact the Pathogen Portal Team</a>
+            </div>
+        </td>
+
+        <td>
+            <div id="bottom_brc_links">
+<a href="/portal/portal/PathPort/Home" title="Go to Pathogen Portal Homepage" alt="Link to Pathogen Portal Homepage">Pathogen Portal</a>
+|
+<a href="http://www.eupathdb.org" title="Go to EuPathDB Homepage "alt="Link to EuPathDB Homepage">EuPathDB</a>
+|
+<a href="http://www.fludb.org" title="Go to IRD Homepage" alt="Link to IRD Homepage">IRD</a>
+|
+<a href="http://www.patricbrc.org" title="Go to PATRIC Homepage" alt="Link to PATRIC Homepage">PATRIC</a>
+|
+<a href="http://www.vectorbase.org" title="Go to VectorBase Homepage" alt="Link to VectorBase Homepage">VectorBase</a>
+|
+<a href="http://www.viprbrc.org" title="Go to ViPR Homepage" alt="Link to ViPR Homepage">ViPR</a>
+            </div>
+        </td>
+
+    </tr>
+</table>
+
+    </div>
+</body>
+</html>

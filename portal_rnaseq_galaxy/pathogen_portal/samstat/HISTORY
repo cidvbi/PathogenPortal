@@ -1,0 +1,25 @@
+VERSION 1.08
+--------------------
+Changed output to show mapping qualities.
+
+Fixed bug in displaying mean base qualities.
+
+
+
+VERSION 1.07
+--------------------
+Added support for gzipped file input.
+
+
+
+
+VERSION 1.06
+--------------------
+Added summary command - creates a table listing properties of several libraries. 
+
+Added reading from stdin. Users need to specify the format with -f <sam | bam | fa | fq >
+
+
+
+
+

@@ -1,0 +1,39 @@
+<tool id="cuffdiff_to_genelist" name="Convert CuffDiff Gene Testing file(s) to GeneList" version="1.0">
+	<description>Create a GeneList file from the gene differential expression testing files of CuffDiff</description>
+	<requirements>
+		<requirement type="package">cuffdiff_to_genelist</requirement>
+	</requirements>
+	<command>
+		cuffdiff_to_genelist.py 
+                #for $file in $test_files
+                    "${file.file}"
+                #end for
+                >$out_file
+	</command>
+
+	<inputs>
+        <param name="output_label" title="Output Label" type="text" label="Meaningful name for GeneList output"/>
+        <repeat name="test_files" title="Gene Differential Expression Testing Files">
+            <param name="file" title="Add file" type="data" format="tabular"/>
+        </repeat>
+	</inputs>
+
+	<outputs>
+        <data format="genelist" name="out_file"  label="${output_label} GeneList" />      
+	</outputs>
+
+	<help>
+
+.. class:: infomark
+
+**CuffDiff Gene Testing to GeneList**
+
+This tool converts CuffDiff Gene Testing file(s) to a single GeneList file for differential expression analysis. Genes with counts of 0 are converted to 0.01 and the log2 fold change is recalcuated so that it can have a reasonable representative value.
+
+-----
+
+**Citation**
+Pathogen Portal Team
+	</help>
+
+</tool>

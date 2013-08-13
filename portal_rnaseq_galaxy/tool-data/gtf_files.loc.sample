@@ -1,0 +1,24 @@
+#This is a sample file distributed with Galaxy --PPmod that enables tools
+#to use a directory of GTF annotationfiles. You will
+#need to create these data files and then create a gtf_files.loc
+#file similar to this one (store it in this directory) that points to
+#the directories in which those files are stored. The gtf_files.loc
+#file has this format (longer white space characters are TAB characters):
+#
+#<unique_build_id>   <dbkey>   <display_name>   <file_base_path>
+#
+#So, for example, if you had hg18 annotations stored in 
+#/depot/data2/galaxy/gtf/hg18/hg18.gtf, 
+#then the bowtie_indices.loc entry would look like this:
+#
+#hg18   hg18   hg18   /depot/data2/galaxy/gtf/hg18/hg18.gtf
+#
+#Your .loc file should include an entry per line for each
+#gtf you have stored.
+#
+#hg18canon          hg18   hg18 Canonical   /depot/data2/galaxy/bowtie/hg18/hg18canon.gtf
+#hg18full           hg18   hg18 Full        /depot/data2/galaxy/bowtie/hg18/hg18full.gtf
+#/orig/path/hg19    hg19   hg19             /depot/data2/galaxy/bowtie/hg19/hg19.gtf
+#...etc...
+#
+#

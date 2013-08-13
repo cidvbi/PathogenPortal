@@ -1,0 +1,690 @@
+changeset:   5748:0d9e5403de5b
+user:        Kelly Vincent <kpvincent@bx.psu.edu>
+date:        Mon Jun 27 11:20:04 2011 -0400
+summary:     Add missed dbkey setting to Tophat color-space wrapper
+
+changeset:   5749:a3ef80ad2535
+user:        Guru Ananda <gua110@bx.psu.edu>
+date:        Mon Jun 27 15:44:59 2011 -0400
+summary:     Rounded the outputs of regression to 10 significant digits.
+
+changeset:   5750:b13d16085dfc
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Mon Jun 27 16:58:52 2011 -0400
+summary:     Add generic method for getting track type and use it when saving visualizations.
+
+changeset:   5751:e132a1398caa
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Mon Jun 27 17:25:32 2011 -0400
+summary:     Additional security for loading visualizations.
+
+changeset:   5752:dca79f6fb1ec
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jun 28 10:24:49 2011 -0400
+summary:     Change many tool shed methods to use the mercurial api.  Fix 2 bugs introduced when email alerts were added - unauthenticated users can once again browse categories / repositories.
+
+changeset:   5753:6f7bcfffe6ff
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jun 28 11:03:55 2011 -0400
+summary:     Make sure the current authenticated user is the one that is associated with new committed change sets in the tool shed repositories.
+
+changeset:   5754:372577e7bc6a
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jun 28 15:45:56 2011 -0400
+summary:     Add new long description and number of times downloaded features for tool shed repositories.  Fix a bug when rating a repository.  Fix a bug when calls to email_alerts are made.
+
+changeset:   5755:6da32e46756b
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jun 28 16:19:30 2011 -0400
+summary:     2 minor bug fixes in the tool shed, and remove unwanted debug statements in an old db migration script.
+
+changeset:   5756:ddd51b0d4556
+user:        Nate Coraor <nate@bx.psu.edu>
+date:        Wed Jun 29 11:07:37 2011 -0400
+summary:     Allow viewing deleted datasets from /history/view.
+
+changeset:   5757:963e73d40e24
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Wed Jun 29 13:27:01 2011 -0400
+summary:     Fix bugs and enable workflows to be uploaded to myExperiment (www.myexperiment.org).
+
+changeset:   5758:d713ce5d01d0
+user:        Nate Coraor <nate@bx.psu.edu>
+date:        Thu Jun 30 11:45:24 2011 -0400
+summary:     Another fix for migration script 65 - the previous fix for MySQL broke PostgreSQL.
+
+changeset:   5759:c2d266a4a8f8
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jun 30 12:13:20 2011 -0400
+summary:     Add the ability for a tool shed admin to delete / undelete repositories.  Fix the display for TextArea fields in the tool shed.  Fix a bug in the Advanced search gid feature - the Advanced search box will now correctly close even if the grid's default_filter dictionary is not empty.  Add the ability to not render the Advanced search box on a grid by passing a flag value to the render method.
+
+changeset:   5760:2eb45c152c10
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jun 30 14:07:55 2011 -0400
+summary:     Fix a bug in the Galaxy tool shed I just introduced in my last commit.
+
+changeset:   5761:cb18eb985ab3
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jun 30 15:09:08 2011 -0400
+summary:     Increment the repository.times_downloaded column in the Galaxy tool shed database when the repository is cloned from the command line.
+
+changeset:   5762:1cda4c563a94
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jun 30 16:13:52 2011 -0400
+summary:     Fix FeatureTracks display bug introduced in 5640:b7c4c1bcf03d.
+
+changeset:   5763:ee846dba409f
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Sun Jul 03 15:05:25 2011 -0400
+summary:     Trackster: provide option to fetch additional data when not all data initially fetched for a tile. For now, all data is refetched rather than iterative fetching. As part of this functionality: (a) enable data providers to accept a max_vals parameter that is used to fetch a particular number of values; and (b) Trackster caches now ignore items with stale=true.
+
+changeset:   5764:ffa23ea969e6
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Mon Jul 04 11:06:04 2011 -0400
+summary:     Trackster refactoring: (a) change data_cache attributes to data_manager to reflect attribute type; (b) automatically use track mode and track view's chrom when getting data from the manager; and (c) calculate and store low, high for Tiles to facilitate reuse.
+
+changeset:   5765:48bbe32beefe
+user:        galaxy galaxy <firstname.lastname@example.net>
+date:        Tue Jul 05 12:40:43 2011 +1000
+summary:     branch merge
+
+changeset:   5766:100080d818fa
+user:        galaxy galaxy <firstname.lastname@example.net>
+date:        Tue Jul 05 16:46:21 2011 +1000
+summary:     Added new test and optional x axis unit alternatives (bits/probability/kcal etc) to weblogo as suggested by Assaf Gordon
+
+changeset:   5767:9a5c403bb2e5
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Tue Jul 05 11:42:56 2011 -0400
+summary:     Trackster: add infrastructure for getting data iteratively but, for now, still fetch all data when getting more data. Use Galaxy button styles as well.
+
+changeset:   5768:94e63070cbb1
+parent:      5765:48bbe32beefe
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Wed Jul 06 09:44:56 2011 +1000
+summary:     Backed out changeset 48bbe32beefe which introduced a whole bunch of unintended reversions from a broken hg repository
+
+changeset:   5769:f37951db86e6
+parent:      5767:9a5c403bb2e5
+parent:      5768:94e63070cbb1
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Wed Jul 06 09:45:41 2011 +1000
+summary:     committing backout from 5765 which included reversions from a broken galaxy-central repository
+
+changeset:   5770:a5e0a5d3c0a1
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Wed Jul 06 09:52:28 2011 -0400
+summary:     Add patch from Assaf Gordon to fix the cleanup_dataset.py script, correcting the behavior of setting the info_only flag to True when running delete_datasets.sh and purge_datasets.sh.
+
+changeset:   5771:75eceb82013e
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Wed Jul 06 10:20:57 2011 -0400
+summary:     Trackster: implement start_val parameter for data providers and use parameter to provide incremental fetching of data. Only 'deep' fetching is currently supported.
+
+changeset:   5772:d271dfcdf482
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Thu Jul 07 10:04:20 2011 +1000
+summary:     More comprehensive error detection for weblogo installation or execution errors
+
+changeset:   5773:84b20f29dfdf
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Wed Jul 06 22:37:51 2011 -0400
+summary:     Add tool version-string support to tool wrappers. Use the <version_string> tag to denote the command to run for the tool version, such as: tophat --version (see tophat wrapper change for example)
+
+changeset:   5774:35c11787e690
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 07 11:55:14 2011 -0400
+summary:     Trackster: implement broad/wide incremental data fetching and add icons for data fetching.
+
+changeset:   5775:4220f8a5c571
+user:        Daniel Blankenberg <dan@bx.psu.edu>
+date:        Thu Jul 07 12:13:49 2011 -0400
+summary:     Update annotation profiler tool sample configuration file.
+
+changeset:   5776:a787213d08e1
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Fri Jul 08 09:09:02 2011 -0400
+summary:     Fix a bug when setting default history permissions in the user preferences; receiving method now gets all required params.
+
+changeset:   5777:8b97f197b759
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Fri Jul 08 16:11:28 2011 -0400
+summary:     First pass implementation for tool shed repository metadata.  This implementation currently provides a baseline metadata collection for tools in a tool shed repository.  This change set also includes the implementation for displaying a tool UI for each valid tool config in the tool shed repository.  Fixes issue # 565.
+
+changeset:   5778:34c190323b36
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Mon Jul 11 13:34:23 2011 -0400
+summary:     Do not set tool shed repository metadata if tool does not load.  Add tool config <requirements> settings to tool shed repository metadata.
+
+changeset:   5779:0007cf69d1dc
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Mon Jul 11 13:45:57 2011 -0400
+summary:     Allow an admin user to manage repositories they do not own.
+
+changeset:   5780:6e9fca39e3f4
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Mon Jul 11 14:10:56 2011 -0400
+summary:     Bug fix for setting tool shed repository metadata on repositories containing more than 1 tool.
+
+changeset:   5781:38899d79629b
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Mon Jul 11 14:48:12 2011 -0400
+summary:     Fix for setting tool shed repository etadata multiple times when nothing in the repository has changed.
+
+changeset:   5782:7c7d01c511d0
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jul 12 10:07:15 2011 -0400
+summary:     Fix for renaming a tool shed repository, and aother fix for displaying a tool that includes a SelectToolParameter with a data_ref.
+
+changeset:   5783:af9b19b57969
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jul 12 13:51:28 2011 -0400
+summary:     Make a backup copy of the tool shed's hgweb.config file just before changes are made to it.  Add the ability for a repository owner to change categories associated with their repository.
+
+changeset:   5784:661aca672402
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jul 12 15:02:37 2011 -0400
+summary:     Fix for displaying tools.
+
+changeset:   5785:632d4c48d97c
+user:        peterjc <p.j.a.cock@googlemail.com>
+date:        Thu Jul 07 11:19:33 2011 +0100
+summary:     Support new tool version tag in NCBI BLAST+ wrappers
+
+changeset:   5786:12cb939a8147
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Tue Jul 12 17:04:16 2011 -0400
+summary:     Rename version_string -> version_command, update wrappers
+
+changeset:   5787:26bffb1b7d57
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Tue Jul 12 18:14:56 2011 -0400
+summary:     Improve BLAST parser tool error handling, and improve elementtree import as well.
+
+changeset:   5788:b2f7abd50f6a
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Wed Jul 13 09:39:02 2011 -0400
+summary:     Add patch from Assaf Gordon to the cleanup_datasets.py script.  The changes are:
+
+changeset:   5789:31dda910849a
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Wed Jul 13 16:51:51 2011 -0400
+summary:     Add support for exproted Galaxy workflows when generating metadata for a tool shed repository.
+
+changeset:   5790:fd53d9688eb3
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 14 12:12:55 2011 +0200
+summary:     Trackster: document FeaturePainter object and methods as abstract.
+
+changeset:   5791:e43c31f9e64c
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 14 14:25:29 2011 -0400
+summary:     Change tool shed repository version to be revision, and some fixes for generating and saving repository metadata.
+
+changeset:   5792:a3fc507f2b42
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 14 15:58:06 2011 -0400
+summary:     Another patch from Assaf Gordon for the cleanup_datasets.py script.
+
+changeset:   5793:f2638528e904
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 14 22:54:43 2011 +0200
+summary:     Fix bug in trackster filtering of GFF datasets.
+
+changeset:   5794:5952ac09af12
+user:        Guru Ananda <gua110@bx.psu.edu>
+date:        Fri Jul 15 10:33:02 2011 -0400
+summary:     Fixed a bug in PCA tool - standard deviation & prop variance values are now sorted by PC order.
+
+changeset:   5795:27bac44e93f6
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Mon Jul 18 15:09:49 2011 +0200
+summary:     Trackster: show 'Add Datasets' button when there are no tracks in a visualization. Refactor and modularize add tracks code so that is can be used in multiple places.
+
+changeset:   5796:8e05f9425723
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Mon Jul 18 15:02:37 2011 -0400
+summary:     Case sensitivity note for login not found error.
+
+changeset:   5797:8553b02ce9ee
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Mon Jul 18 21:56:23 2011 -0400
+summary:     Tools: Add new LibraryDataset tool parameter to expose LDDAs to tools. Use trackster's modal popup interface for item selection. Add new InputWrapper that exposes LDDA templates as well.
+
+changeset:   5798:98ef4f135243
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jul 19 11:27:16 2011 -0400
+summary:     Various tool shed fixes and enhancements:
+
+changeset:   5799:f9ef2aecaecd
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jul 19 13:48:42 2011 -0400
+summary:     Add exception handling around all mercurial api commit calls.  On Linux, the mercurial api's commit seems to bump into issues intermittently, throws an exception, and rolls back the transaction.  Although I can reproduce it on Linux, I cannot produce this behavior on a Mac.  The exception handler uses a different approach to committing the changes.  I've also added this code to the update_for_browsing method.
+
+changeset:   5800:9d17faf3398a
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Jul 19 15:10:11 2011 -0400
+summary:     Fix for message display when setting tool shed repository metadata.
+
+changeset:   5801:f5f352f7099d
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Tue Jul 19 21:22:07 2011 -0400
+summary:     Fix LibraryField grouping issue by adding prefix
+
+changeset:   5802:2b55d3bd13d4
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Wed Jul 20 12:17:43 2011 +1000
+summary:     Fixes to rgManQQ.py to handle chromosome oddities like 'chr1' and X.
+
+changeset:   5803:f062f33087e8
+parent:      5796:8e05f9425723
+user:        Nick Semenkovich <semenko@alum.mit.edu>
+date:        Mon Jul 18 18:10:55 2011 -0500
+summary:     Update links to reflect Galaxy Wiki moving away from Bitbucket.
+
+changeset:   5804:8ecc7c895482
+user:        Nick Semenkovich <semenko@alum.mit.edu>
+date:        Tue Jul 19 14:02:02 2011 -0500
+summary:     Missed one in base_panels
+
+changeset:   5805:58b013db7fa3
+user:        Nick Semenkovich <semenko@alum.mit.edu>
+date:        Tue Jul 19 14:06:44 2011 -0500
+summary:     Prefer PSU URLs for wiki.
+
+changeset:   5806:7b9831916a1c
+parent:      5802:2b55d3bd13d4
+parent:      5805:58b013db7fa3
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Tue Jul 19 22:18:40 2011 -0400
+summary:     Merged in semenko/galaxy-central-replace-bitbucket (pull request #2) for wiki links
+
+changeset:   5807:dacf97a6c663
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Wed Jul 20 13:34:27 2011 +1000
+summary:     Minor tweak to the x axis sorting of Manhattan plots to fix the fact that in R, unique() returns an alphabetically sorted list - need to use sort on the result to get correct lexicographic (10 comes after 9 eg) on the X axis...
+
+changeset:   5808:ce8cc8feb6e0
+parent:      5798:98ef4f135243
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Tue Jul 19 13:40:24 2011 -0400
+summary:     Code cleanup.
+
+changeset:   5809:c875100ea5ed
+parent:      5808:ce8cc8feb6e0
+parent:      5807:dacf97a6c663
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Wed Jul 20 09:01:37 2011 -0400
+summary:     Merge
+
+changeset:   5810:b68bbdc8dd14
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 21 09:43:49 2011 -0400
+summary:     Several tool shed enhancements and fixes:
+
+changeset:   5811:c176363cb7b2
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 21 10:04:48 2011 -0400
+summary:     Fix filtering of deleted objects in grid framework when using sqlite. Also make history grid's label for deleted filter clearer. Fixes #596
+
+changeset:   5812:6aefc6f5e3b1
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 21 10:21:58 2011 -0400
+summary:     Trackster: (a) fix bugs when indexing input datasets for rerunning tools; and (b) when user adds dataset to visualization via icon, show only visualizations with corresponding dbkey.
+
+changeset:   5813:db14d460baa9
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 21 10:26:41 2011 -0400
+summary:     Cufflinks/compare/diff wrappers: (a) make wrapper versions independent of tool versions; and (b) add comments that indicate tool versions supported by wrappers.
+
+changeset:   5814:ebb1014b237d
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Thu Jul 21 10:43:16 2011 -0400
+summary:     Fix bitbucket issue #612 regarding administrative job lock toggling inappropriately.  Split logical forms into actual forms.
+
+changeset:   5815:86bdb4a9db48
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 21 12:46:27 2011 -0400
+summary:     Add exception handling for mercurial commands that break in the test / production tool shed environment, but not elsewhere.
+
+changeset:   5816:bdb3436ff22f
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 21 13:03:04 2011 -0400
+summary:     Remove tool shed repository files from disk that become untracked because they were removed from the repository within an exception block (only occurs in the tool shed test / production environments ).
+
+changeset:   5817:0ff5ad458dea
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Thu Jul 21 13:13:48 2011 -0400
+summary:     Return JSON for LibraryDatasetToolParam metadata
+
+changeset:   5818:448490d701fa
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Thu Jul 21 13:14:13 2011 -0400
+summary:     Fix workflow overlay error introduced in recent commit
+
+changeset:   5819:0f15591f2acd
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 21 13:44:45 2011 -0400
+summary:     Fix for tool configs that do not include a command tag.
+
+changeset:   5820:c609c2574c66
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 21 13:55:24 2011 -0400
+summary:     Add Assaf Gordon's collect_job_timings.sh script.
+
+changeset:   5821:a7b8b0f49b48
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 21 14:22:33 2011 -0400
+summary:     Trackster: save data in Tile object and use to determine if filters are available.
+
+changeset:   5822:c360836d2c56
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 21 14:37:25 2011 -0400
+summary:     Prevent keyboard navigation from within input elements in shared visualizations.
+
+changeset:   5823:7702f72354f2
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 21 16:19:52 2011 -0400
+summary:     Add the ability to view all stored metadata for each tool in a tool shed repository, as well as some tool attributes that are not stored as metadata (e.g., tool.command, etc ).
+
+changeset:   5824:e35c7bb3f7ed
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Fri Jul 22 10:03:41 2011 -0400
+summary:     Trackster: enable datasets without a set dbkey to be added to a visualization.
+
+changeset:   5825:4e6d4f51bff9
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Fri Jul 22 10:15:37 2011 -0400
+summary:     Trackster documentation.
+
+changeset:   5826:6206a27bd2ae
+branch:      feature/ws
+user:        Trevor Wennblom <trevor@well.com>
+date:        Fri Jul 22 15:17:26 2011 -0500
+summary:     minor whitespace updates, tab/space consistency
+
+changeset:   5827:f3a1086fac91
+parent:      5825:4e6d4f51bff9
+parent:      5826:6206a27bd2ae
+user:        James Taylor <james.taylor@emory.edu>
+date:        Sat Jul 23 21:05:55 2011 -0400
+summary:     Merged in trevorw/galaxy-central (pull request #3)
+
+changeset:   5828:e34b1108f7f8
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Mon Jul 25 02:02:07 2011 -0400
+summary:     tool_form should overflow correctly
+
+changeset:   5829:9bfff04b94c9
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Mon Jul 25 20:55:42 2011 -0400
+summary:     Cleaner fix for 5828:e34b1108f7f8
+
+changeset:   5830:3d2fd67bc0ca
+user:        Nate Coraor <nate@bx.psu.edu>
+date:        Tue Jul 26 13:30:07 2011 -0400
+summary:     Move a number of dataset-related methods from the root controller to the dataset controller and encode their ids.  Also add user disk usage accounting.
+
+changeset:   5831:d306dfb77ea3
+user:        Guru Ananda <gua110@bx.psu.edu>
+date:        Tue Jul 26 16:14:31 2011 -0400
+summary:     Added additional options to the liftOver tool. It now supports GFF and GTF formats and allows multiple output regions and related options.
+
+changeset:   5832:70b8039a2eef
+branch:      feature/ws
+parent:      5826:6206a27bd2ae
+user:        Nate Coraor <nate@bx.psu.edu>
+date:        Wed Jul 27 10:48:03 2011 -0400
+summary:     Closed the feature/ws branch, changes from this branch were merged in 5827:f3a1086fac91.
+
+changeset:   5833:e7214c69ed7d
+parent:      5831:d306dfb77ea3
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Wed Jul 27 16:14:15 2011 -0400
+summary:     Add an altered version of Jelle Scholtalbers' enhancement code to support uploding various image data types.  I've moved some of the code components around from Jelle's version, and added some fixes.  The cod ein the new image_util.py file enables detections of images types without the need to create a new Image() class.
+
+changeset:   5834:7507b7be224c
+parent:      5820:c609c2574c66
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Thu Jul 21 14:22:23 2011 -0400
+summary:     Trailing whitespace cleanup workflow editor.
+
+changeset:   5835:2687588bca04
+parent:      5834:7507b7be224c
+parent:      5829:9bfff04b94c9
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Tue Jul 26 13:18:22 2011 -0400
+summary:     merge
+
+changeset:   5836:e055ca3efb5c
+parent:      5835:2687588bca04
+parent:      5830:3d2fd67bc0ca
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Tue Jul 26 13:56:16 2011 -0400
+summary:     merge
+
+changeset:   5837:57c8053675b6
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Thu Jul 28 08:22:07 2011 -0400
+summary:     Expose workflows shared with the user in /workflows list of the API.
+
+changeset:   5838:f0c4e3efcb99
+parent:      5837:57c8053675b6
+parent:      5833:e7214c69ed7d
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Thu Jul 28 08:22:22 2011 -0400
+summary:     Merge.
+
+changeset:   5839:d99894825096
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 28 10:00:02 2011 -0400
+summary:     Add necessary import statement for e7214c69ed7d.
+
+changeset:   5840:33fb9df64172
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Jul 28 11:41:01 2011 -0400
+summary:     Rewrite Pac Bio assembly_stats tool - it now takes 1 input fasta dataset and produces 1 output tabular dataset.  The "wiki" output format has been eliminated, and the dependency on the pbpy module has been eliiminated.
+
+changeset:   5841:9ece46045d15
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Jul 28 11:50:56 2011 -0400
+summary:     Fix bug in 3d2fd67bc0ca that prevented autocomplete from working in dataset attributes editing page.
+
+changeset:   5842:bb51baa20151
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Fri Jul 29 11:05:55 2011 -0400
+summary:     Fix bug discovered by Glen Beane in rendering roles on the permissions page for data libraries.  In the data library hierarchy, rendered roles are all derived from roles associated with the LIBRARY_ACCESS permission, but roles rendered for that permission itself must be handled as a special case, which now is the case in that all legitimate roles not associated are listed.
+
+changeset:   5843:de94796f92b7
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Fri Jul 29 11:26:09 2011 -0400
+summary:     Mke message stating how much disk space was cleaned up in the Galaxy reposrts prettier.  Fixes issue # 618.
+
+changeset:   5844:dc8f4f649a43
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Fri Jul 29 14:33:34 2011 -0400
+summary:     Tool shed template fixes: replace 1/2 template somehow removed in change set 5830, fix pop-up menu code for tools.
+
+changeset:   5845:2573ac2b9c58
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Mon Aug 01 17:35:18 2011 -0400
+summary:     LibraryDataset Parameter:
+
+changeset:   5846:9cae773f70ed
+user:        Daniel Blankenberg <dan@bx.psu.edu>
+date:        Tue Aug 02 08:55:57 2011 -0400
+summary:     Update EuPathDB datasource configuration file. Contributed by Mark Heiges.
+
+changeset:   5847:f60dfcc77165
+user:        Daniel Blankenberg <dan@bx.psu.edu>
+date:        Tue Aug 02 12:16:22 2011 -0400
+summary:     Fix for 2 comments in templates/dataset/security_common.mako.
+
+changeset:   5848:5feafa125856
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Tue Aug 02 13:52:02 2011 -0400
+summary:     Trackster: refactor post-draw actions into their own methods.
+
+changeset:   5849:2b954f70db10
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Aug 02 14:19:38 2011 -0400
+summary:     Add a malicious flag to the tool shed's repository metadata - if true, downloading is restricted to only those users that can write to the repository.  Fix a bug in determining if a user can write to a repository, and a bit of miscellaneous cleanup.
+
+changeset:   5850:58ace2b0883a
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Tue Aug 02 14:35:24 2011 -0400
+summary:     A couple of fixes in the manage_repository.mako template.
+
+changeset:   5851:b4b6bfe0032c
+user:        Daniel Blankenberg <dan@bx.psu.edu>
+date:        Tue Aug 02 16:05:55 2011 -0400
+summary:     Update GMAJ: fixes a ClassCastException that was encountered on Macs running Java 1.6.
+
+changeset:   5852:8024a7996c55
+parent:      5751:e132a1398caa
+user:        John Duddy <jduddy@illumina.com>
+date:        Mon Jun 27 16:18:33 2011 -0700
+summary:     Add ability for API to do things on another user's behalf
+
+changeset:   5853:2c7ddd0f8972
+user:        John Duddy <jduddy@illumina.com>
+date:        Fri Jul 29 12:39:29 2011 -0700
+summary:     Promote run_as API users to admin if the API key user is an admin
+
+changeset:   5854:cde2d0c27d96
+parent:      5851:b4b6bfe0032c
+parent:      5853:2c7ddd0f8972
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Wed Aug 03 00:34:27 2011 -0400
+summary:     Merge API run_as changes from John Duddy.
+
+changeset:   5855:70acce0591a9
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Wed Aug 03 02:02:54 2011 -0400
+summary:     workflows: Fix for rename not updating latest_workflow in addition to the stored workflow.  This fixes the error where workflow exports always had the *original* workflow name, regardless of renames.
+
+changeset:   5856:f516ee9ce331
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Wed Aug 03 02:09:42 2011 -0400
+summary:     Workflows:  Same fix as previous, but for rename_async...
+
+changeset:   5857:d2433ed56951
+user:        Nate Coraor <nate@bx.psu.edu>
+date:        Wed Aug 03 10:13:01 2011 -0400
+summary:     Bugfix for the offline egg packaging script.
+
+changeset:   5858:4212f675f95b
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Wed Aug 03 11:39:23 2011 -0400
+summary:     Remove unspecified build validators from Cuffdiff wrapper; fixes #631
+
+changeset:   5859:da65b1695245
+user:        Kanwei Li <kanwei@gmail.com>
+date:        Wed Aug 03 13:54:28 2011 -0400
+summary:     Add simple display option to data libraries that omits certain columns... unclutters LibraryDataset parameter UI
+
+changeset:   5860:3479cddf6bfa
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Thu Aug 04 10:57:03 2011 +1000
+summary:     fixes for rgManQQ plots to create a compressed PDF using GS as the downloadable artifact - much more useful for publication
+
+changeset:   5861:e79d064e4880
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Thu Aug 04 12:43:30 2011 +1000
+summary:     Fixed sam_merge.xml to call Picard MergeSamFiles.jar so metadata can be propagated through to the new merged bam from all the individual files - the samtools version of merge would require this to be done separately and passed in with the -h option whereas Picard does it automatically. Added one more test. Interesting that the test for that tool has been failing to correctly pass metadata but passing the buildbot anyway. Thanks to Camille Stephan for pointing out the bug.
+
+changeset:   5862:8cb402826d49
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Thu Aug 04 16:50:22 2011 +1000
+summary:     sam_merge.xml tweaks: changed call to MergeSamFiles to use minimal command line flags and finally got LENIENT validation stringency to actually work
+
+changeset:   5863:95e1527499e0
+user:        Ross Lazarus <ross.lazarus@gmail.com>
+date:        Thu Aug 04 16:55:13 2011 +1000
+summary:     Increase lines_diff so sam_merge tests might pass on buildbot
+
+changeset:   5864:f018b1450140
+user:        Nate Coraor <nate@bx.psu.edu>
+date:        Thu Aug 04 10:39:16 2011 -0400
+summary:     User/group disk quotas.
+
+changeset:   5865:87612f542f36
+user:        Nate Coraor <nate@bx.psu.edu>
+date:        Thu Aug 04 11:01:22 2011 -0400
+summary:     Bugfix for check_galaxy (monitor script) since dataset deletion moved to the dataset controller.
+
+changeset:   5866:6bc991a9a86e
+user:        Daniel Blankenberg <dan@bx.psu.edu>
+date:        Thu Aug 04 13:30:01 2011 -0400
+summary:     Make setting read groups in BWA off by default.
+
+changeset:   5867:5d959ef3a1c7
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Aug 04 13:39:58 2011 -0400
+summary:     Change Help -> Email comments link to be Support and point to wiki instead of email per Jen's instructions.
+
+changeset:   5868:2c0fb36140bd
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Aug 04 13:43:21 2011 -0400
+summary:     Missed a link in previous commit.
+
+changeset:   5869:9f9c2612d3c6
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Thu Aug 04 13:50:09 2011 -0400
+summary:     A couple of tool shed template fixes.
+
+changeset:   5870:7ee2636e0139
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Thu Aug 04 16:46:37 2011 -0400
+summary:     Trackster: get overview working again and pack script.
+
+changeset:   5871:8ab07a531e53
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Fri Aug 05 11:18:58 2011 -0400
+summary:     Trackster overview enhancements: (a) show and hide overview via track menus; (b) use tile cache to store overview tracks; (c) overview track saved and restored.
+
+changeset:   5872:36d42578940a
+user:        Dannon Baker <dannonbaker@me.com>
+date:        Fri Aug 05 11:31:12 2011 -0400
+summary:     Update Param unit test to account for the '#' to '__pd__' change from 5810:b68bbdc8dd14 that made it fail.
+
+changeset:   5873:f0d8b7e74764
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Fri Aug 05 14:14:14 2011 -0400
+summary:     Trackster: only show a dynamic filter if min != max.
+
+changeset:   5874:8f86c3dd7f83
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Fri Aug 05 16:22:23 2011 -0400
+summary:     Fixes, code cleanup for setting tool shed repository metadata.
+
+changeset:   5875:8695c3c1485c
+user:        Greg Von Kuster <greg@bx.psu.edu>
+date:        Fri Aug 05 16:40:29 2011 -0400
+summary:     Fix for setting repository metadata.
+
+changeset:   5876:26c5ad3d7976
+user:        Nate Coraor <nate@bx.psu.edu>
+date:        Sat Aug 06 09:31:48 2011 -0400
+summary:     Add missing database migration for quotas (thanks Ross).
+
+changeset:   5877:39d41e077bca
+user:        Daniel Blankenberg <dan@bx.psu.edu>
+date:        Mon Aug 08 09:35:48 2011 -0400
+summary:     Import patch contributed by Assaf Gordon allowing bwa_wrapper to work directly on fastqillumina formatted files. Closes #635.
+
+changeset:   5878:de05a856a4b2
+user:        Daniel Blankenberg <dan@bx.psu.edu>
+date:        Mon Aug 08 16:00:35 2011 -0400
+summary:     Fix for exporting tagged MAF blocks from GMAJ into a Galaxy history.
+
+changeset:   5879:2d626f5b66d4
+user:        Daniel Blankenberg <dan@bx.psu.edu>
+date:        Mon Aug 08 16:16:46 2011 -0400
+summary:     Fix for unit tests for converting of #/pound
+
+changeset:   5880:1291bc31fec6
+tag:         tip
+user:        jeremy goecks <jeremy.goecks@emory.edu>
+date:        Tue Aug 09 11:11:13 2011 -0400
+summary:     Refactor validation of user account data--email, username, password--into own module and use module for validating user data throughout Galaxy.

@@ -1,0 +1,47 @@
+syntax: regexp
+
+\.svn$
+
+syntax: glob
+
+.hg*
+# Downloaded and locally built eggs
+eggs
+scripts/scramble/build
+scripts/scramble/lib
+scripts/scramble/archives
+
+# Database stuff
+database/beaker_sessions
+database/community_files
+database/compiled_templates
+database/files
+database/pbs
+database/tmp
+database/*.sqlite
+
+# Python bytecode
+*.pyc
+
+# Config files
+universe_wsgi.ini
+reports_wsgi.ini
+datatypes_conf.xml
+tool_conf.xml
+static/welcome.html.*
+tool-data/*.loc
+
+# Test output
+run_functional_tests.html
+
+# Project files
+*.kpf
+
+# Chrom len files
+*.len
+
+# Misc
+*.orig
+.DS_Store
+*.rej
+*~
